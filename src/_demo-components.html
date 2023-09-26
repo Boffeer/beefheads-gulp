@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <!-- Отключить автодетект телефонов -->
+    <meta name="format-detection" content="telephone=no" />
+
+    <!-- Отключить кэширование. Нужен только при разработке, чтобы все было свежим -->
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="max-age=3600, must-revalidate" />
+  </head>
+  <body>
+    <div class="wrapper">
+      @@include('tpls/header.html',{})
+
+      <main class="main">
+        <section class="hero">
+          <div class="container hero__container">
+            <h2 class="section-title hero__title"></h2>
+          </div>
+        </section>
+      </main>
+
+      <div class="content">
+        <form action="">
+          <h2>Заголовок формы</h2>
+          <label class="input input--name">
+            <input
+              class="input__field"
+              name="user_name"
+              type="text"
+              placeholder="Имя"
+              data-value-missing="Заполните имя"
+              data-value-invalid="Что-то не так с введенным именем"
+              autocomplete="name"
+            />
+            <span class="input__message">Сообщение</span>
+          </label>
+          <label class="input input--tel">
+            <input
+              class="input__field"
+              name="user_tel"
+              type="tel"
+              placeholder="Телефон"
+              maxlength="25"
+              minlength="10"
+              data-value-missing="Напишите телефон"
+              data-value-invalid="Проверьте корректность телефона"
+              autocomplete="tel"
+            />
+            <span class="input__message">Ошибка</span>
+          </label>
+          <label class="input input--email">
+            <input
+              class="input__field"
+              name="user_email"
+              type="email"
+              placeholder="Email"
+              autocorrect="off"
+              autocomplete="email"
+              data-value-missing="Напишите имейл"
+              data-value-invalid="Проверьте корректность имейла"
+            />
+            <span class="input__message">Ошибка</span>
+          </label>
+          <button class="button button--primary" type="submit">
+            Отправить!
+          </button>
+        </form>
+        <button class="button button--primary" data-b_modal-open="popich">
+          Открыть
+        </button>
+        <button>еще</button>
+      </div>
+
+      <div id="popich" class="b_modal">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae
+        consectetur velit architecto illo! A itaque saepe consequatur quam
+        iusto, quaerat ratione, earum ad et recusandae voluptates iure error
+        quidem tempore!
+      </div>
+
+      @@include('tpls/footer.html',{})
+    </div>
+
+    @@include('tpls/modals.html', {})
+    <script src="./js/bundle.min.js"></script>
+  </body>
+</html>
